@@ -1,4 +1,3 @@
-#Tehnici Avansate de Programare
-
-##Teme
-##Proiect
+# Tehnici Avansate de Programare
+## Teme
+## Proiect
