@@ -1,6 +1,6 @@
 # Tehnici Avansate de Programare
 ## Proiect:
-### My Budget 
+### Friendly Budget 
 #### (o aplicatie prietenoasa cu finantele tale)
 Programul permite definirea unor tinte de buget lunare (procentual din venituri sau precis) pentru diferite categorii de cheltuieli (locuinta, rate, utilitati, transport, hrana, distractie, diverse, urgente, etc.)
 
