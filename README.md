@@ -1,3 +1,3 @@
 # Tehnici Avansate de Programare
-## Teme
 ## Proiect
+Autor: Ovidiu Dogar, Informatica, anul II, Grupa A
