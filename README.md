@@ -1,6 +1,7 @@
 # Tehnici Avansate de Programare
 ## Proiect:
-### My Budget (o aplicatie prietenoasa cu finantele tale)
+### My Budget 
+#### (o aplicatie prietenoasa cu finantele tale)
 Programul permite definirea unor tinte de buget lunare (procentual din venituri sau precis) pentru diferite categorii de cheltuieli (locuinta, rate, utilitati, transport, hrana, distractie, diverse, urgente, etc.)
 
 Lunar se introduce suma totala care intra in buget. Apoi, platile individuale care vor fi alocate pe categorii vor fi introduse in momentul efectuarii acestora.
