@@ -10,7 +10,7 @@ In cazul in care bugetul alocat initial/categorie este depasit, utilizatorul pri
 
 Programul nu ar trebui sa permita cheltuirea banilor inexistenti iar in momentul in care se ajung in aceasta situatie de fonduri insuficiente, clientul ar trebui sa adauge noi fonduri in sistem.
 
-Lunar, se poate extrage o situatie a bugetului, unde s-a cheltuit mai mult decat bugetul alocat initial, iar daca exista sume ramase necheltuite, aceste vor fi adaugate intr-un cont de economii.
+Lunar, se poate extrage o situatie a bugetului, unde s-a cheltuit mai mult decat bugetul alocat initial, iar daca exista sume ramase necheltuite, acestea vor fi adaugate intr-un cont de economii.
 
 De asemenea se poate face o estimare a bugetului pentru fiecare categorie pe luma urmatoare in functie de modul in care a fost cheltuit bugetul lunilor anterioare. (o medie ponderata a acestora)
 
