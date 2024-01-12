@@ -11,6 +11,8 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/qsqlquery.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -43,6 +45,32 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("mydatabase.db");
+
+    if (db.open()) {
+        QSqlQuery query;
+        query.exec("CREATE TABLE IF NOT EXISTS budget (settings INT PRIMARY KEY, maxAmount REAL, spentAmount REAL)");
+
+        query.prepare("INSERT OR REPLACE INTO budget (settings, maxAmount, spentAmount) VALUES (:settings, :maxAmount, :spentAmount)");
+        query.bindValue(":settings", 1);
+        query.bindValue(":maxAmount", BudgetManager().totalIncome);
+        query.bindValue(":spentAmount", BudgetManager().calculateTotalSpent());
+        query.exec();
+
+        query.exec("CREATE TABLE IF NOT EXISTS categories (name TEXT PRIMARY KEY, budget REAL, spent REAL)");
+
+        for (const auto &category : BudgetManager().categories) {
+            query.prepare("INSERT OR REPLACE INTO categories (name, budget, spent) VALUES (:name, :budget, :spent)");
+            query.bindValue(":name", category.name);
+            query.bindValue(":budget", category.budget);
+            query.bindValue(":spent", category.spent);
+            query.exec();
+        }
+
+        db.close();
+    }
+
     delete ui;
 }
 
@@ -73,7 +101,7 @@ void MainWindow::addBudgetCategory(const QString& categoryName, double maxAmount
     QProgressBar* progressBar = new QProgressBar(ui->centralwidget);
     QPushButton* addButton = new QPushButton("Adauga", ui->centralwidget);
 
-    // Setam valoarea mazima pentru progress bar
+    // Setam valoarea maxima pentru progress bar
     progressBar->setMaximum(static_cast<int>(maxAmount));
 
     // Setam valoarea curenta pentru progress bar

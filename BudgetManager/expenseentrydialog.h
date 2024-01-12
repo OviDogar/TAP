@@ -15,6 +15,9 @@ public:
     explicit ExpenseEntryDialog(QWidget *parent = 0);
     ~ExpenseEntryDialog();
 
+private slots:
+    void on_buttonBox_accepted();
+
 private:
     Ui::ExpenseEntryDialog *ui;
 };

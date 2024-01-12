@@ -21,7 +21,7 @@ public:
 public:
     BudgetManager();
     void setTotalIncome(double income);
-    void addCategory(const QString &name, double budget);
+    void addCategory(const QString &name, double budget, double spent=0.0);
     void addIncome(const double income);
     void recordExpense(const QString &categoryName, double expense);
     void recordIncome(double income);
