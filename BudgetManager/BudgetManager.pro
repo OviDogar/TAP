@@ -10,6 +10,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addcategory.cpp \
     addmoney.cpp \
     budgetmanager.cpp \
     expenseentrydialog.cpp \
@@ -17,12 +18,14 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    addcategory.h \
     addmoney.h \
     budgetmanager.h \
     expenseentrydialog.h \
     mainwindow.h
 
 FORMS += \
+    addcategory.ui \
     addmoney.ui \
     expenseentrydialog.ui \
     mainwindow.ui

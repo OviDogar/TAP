@@ -29,9 +29,11 @@ BudgetManager::BudgetManager() : totalIncome(0.0)
         } else {
             qDebug() << "Nu s-a rulat interogarea DB:" << query1.lastError().text();
         }
-
-        db.close();
     }
+
+    db.close();
+    QSqlDatabase::removeDatabase( QSqlDatabase::defaultConnection );
+
 
     // Initializam istoricul de cheltuieli
     spendingHistory.append(QVector<double>(categories.size(), 0.0));
@@ -55,7 +57,6 @@ void BudgetManager::recordExpense(const QString &categoryName, double expense)
 
             // Actualizam istoricul de cheltuieli pentru luna curenta
             spendingHistory.back()[&category - categories.data()] = expense;
-
             return;
         }
     }
@@ -73,7 +74,7 @@ double BudgetManager::calculateRemainingBudget(const QString &categoryName) cons
     }
 
     // In cazul in care categoria nu este gasita
-    qDebug() << "Error: Categoria" << categoryName << "nu exista!";
+    qDebug() << "Eroare: Categoria" << categoryName << "nu exista!";
     return 0.0;
 }
 
@@ -105,9 +106,9 @@ void BudgetManager::nextMonthBudget()
         }
     }
 
-    // Setam bugetul lunii viitoare tinand cont de media cheltuielilor anterioare + 10%
+    // Setam bugetul lunii viitoare tinand cont de media cheltuielilor anterioare + 5%
     for (int i = 0; i < categories.size(); ++i) {
-        categories[i].budget = averageSpending[i] * 1.1; // Crestem cu 10%
+        categories[i].budget = averageSpending[i] * 1.05; // Crestem cu 5%
     }
 
     // Initializam istoricul de cheltuieli pentru luna urmatoare

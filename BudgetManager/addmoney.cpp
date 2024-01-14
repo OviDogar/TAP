@@ -18,7 +18,7 @@ AddMoney::~AddMoney()
 void AddMoney::on_buttonBox_accepted()
 {
     double amount = ui->addAmount->text().toDouble();
-    BudgetManager().addIncome(amount);
+    BudgetManager::getInstance().addIncome(amount);
 
     emit amountUpdated(amount);
 
